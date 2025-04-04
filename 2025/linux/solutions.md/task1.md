@@ -101,17 +101,32 @@ Deleting Groups and Users:
 Q1. Create a user devops_user and add them to a group devops_team.
 
 ans : created a user devops_user by using command: sudo useradd devops_user
-      created a group devops_team by using command : sudo usermod -aG devops_team devops_user
+      created a group devops_team by using
+               
+               command : sudo usermod -aG devops_team devops_user
 
 Q2. Set a password and grant sudo access.
-ans : password set by using command :      sudo passwd devops_user
-      granted sudo acces by using command: sudo usermod -aG sudo devops_user
-      to very the sudo access or switching the sudo user  command :su - devops_user
+ans : password set by using
+
+               command :      sudo passwd devops_user
+      granted sudo acces by using
+      
+               command: sudo usermod -aG sudo devops_user
+      to very the sudo access or switching the sudo user 
+      
+                command :su - devops_user
 
 Q3. Restrict SSH login for certain users in /etc/ssh/sshd_config
-ans : Open the SSH Configuration File command: sudo vim /etc/ssh/ssh_config
-      Add the DenyUsers line   command : DenyUsers user1 user2 user3 
-      Restart the SSH Service command : sudo systemctl restart .ssh
-      we can also deny access to groups by using command: DenyGroups group_name
+ans : Open the SSH Configuration File
+
+              command: sudo vim /etc/ssh/ssh_config
+      Add the DenyUsers line   
+              command : DenyUsers user1 user2 user3 
+      Restart the SSH Service  
+      
+              command : sudo systemctl restart .ssh
+      we can also deny access to groups by using   
+      
+              command: DenyGroups group_name
 
 
