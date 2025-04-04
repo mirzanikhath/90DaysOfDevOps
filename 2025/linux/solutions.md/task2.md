@@ -48,6 +48,7 @@ SETTING UP FILE PERMISSIONS
 
 3. chgrp: Just for Changing Groups:
   chgrp is like chown, but it only changes the group:
+
           syntax:[chgrp new_group filename]
           example:[sudo chgrp marketing project_files/]
 
@@ -56,12 +57,20 @@ when we have to change the file permissions for bunch of files we do it recursiv
         example:[sudo chmod -R 755 group_name]
 
 Q1. Create /devops_workspace and a file project_notes.txt.
-ans : to create a workspace or directory command : mkdir /devops_workspace 
-      to create a file command : touch project_notes.txt
+ans : to create a workspace or directory 
+             
+             command : mkdir /devops_workspace 
+      to create a file
+      
+             command : touch project_notes.txt
 
 Q2. Set permissions:Owner can edit, group can read, others have no access.
-ans : the file permission command will be : sudo chmod 640 project_notes.txt
+ans : the file permission command will be : 
+
+             sudo chmod 640 project_notes.txt
 
 Q3. Use ls -l to verify permissions.
-ans : to verify the permissions command : ls -l /devops_workspace
+ans : to verify the permissions
+
+             command : ls -l /devops_workspace
 
