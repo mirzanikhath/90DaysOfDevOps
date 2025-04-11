@@ -79,7 +79,7 @@ Breakdown of common tasks and how they can be achieved in shell scripts:
 
 as you have seen above to run these all commands we need alot of time to execute them one by one shell scripts helps us to use these all commands as text in the scripts file and run them altogether.
 
-shell script  for creating the user will look like :
+part 1:- shell script  for creating the user will look like :
 
 
      #!/bin/bash
@@ -107,6 +107,12 @@ shell script  for creating the user will look like :
     echo 'user "$username" is succesfully created'.
 
     
+part 2:- shell script for deleting the user :
+
+
+   #!/bin/bash
+
+   
 
 
     
