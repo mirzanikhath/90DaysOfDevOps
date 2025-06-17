@@ -8,7 +8,7 @@ some key concepts of shell scripting are :
 2. purpose : shell scripts are used to automate tasks , execute commands and manage files and processes.
 3. shell: common shell include bash (bourne again shell),zsh and others.
 4. basic structure of shell script:
-   - shebang: the first line of the shell script !/bin/bash , this specifies the interpreter to be used .
+   - shebang: the first line of the shell script #!/bin/bash , this specifies the interpreter to be used .
    - commands : the commands written in shell script should each command on a new line .
    - variables : we can define the variables in the shell scripts .
    - control flow: Scripts can use if, else, for, while statements to control execution flow. 
@@ -111,8 +111,67 @@ part 2:- shell script for deleting the user :
 
 
    #!/bin/bash
+   #script to delete user accounts with options and validation
 
+   #function to delete user 
+   delete_user() {
+      read -p "Enter the username to delete :" usernamer
+
+      #check if user exists 
+      if id "$username" &>/dev/null; then 
+          sudo userdel -r "$username"
+          if [$? -eq 0]; then 
+             echo "user '$username' has been successfully deleted."
+          else
+             echo "failed to delete user '$username'."
+          fi 
+      else 
+         echo " user '$username' does not exist."
+         exit 1 
+      fi 
+   }
    
+
+The above script is used to delete the username if exits and removes user and the home directory where -d and --delete are required for deletion  of the user after deletion it gives us back the successful message of deletion .
+
+Part-3:- shell script for password reset of the user 
+
+#!/bin/bash 
+#script to reset the password for the existing user 
+
+read -p "Enter the username:" username 
+#check if the user exists 
+if id "$username" $>/dev/null; then 
+    read -s -p "Enter the new password:" password 
+    echo 
+    read -s -p "Confirm the new password:" password_confirm 
+    echo
+
+    #check if passwords match 
+    if [ "$password" != "$password_confirm"]; then 
+        echo "passwords do not match. try again."
+        exit 1 
+
+    fi
+     # set a new password 
+     echo "$username:$password"| sudo chpasswd 
+
+     # confirm success 
+     if [$? -eq 0]; then 
+        echo "password reset successfully for the user '$username'."
+
+     else 
+        echo " failed to reset the password for the user '$username'."
+
+     fi 
+   
+else 
+   echo " user '$username' does not exists."
+   exit 1
+
+fi 
+
+
 
 
     
