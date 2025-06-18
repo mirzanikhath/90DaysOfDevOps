@@ -1,3 +1,5 @@
+# Week 3 challenge : shell scripting 
+
 # SHELL SCRIPTING 
 
 shell scripting in linux involves writing a sequence of commands in a text file, which the shell then interprets and executes , automating the tasks and simplifying repetitive operations.
