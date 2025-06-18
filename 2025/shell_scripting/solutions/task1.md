@@ -112,7 +112,9 @@ part 2:- shell script for deleting the user :
 
 
    #!/bin/bash
+
    #script to delete user accounts with options and validation
+
    #function to delete user 
    delete_user() {
       read -p "Enter the username to delete :" usernamer
@@ -139,9 +141,13 @@ Part-3:- shell script for password reset of the user
 
 
 #!/bin/bash 
+
 #script to reset the password for the existing user 
+
 read -p "Enter the username:" username 
+
 #check if the user exists 
+
 if id "$username" $>/dev/null; then 
     read -s -p "Enter the new password:" password 
     echo 
