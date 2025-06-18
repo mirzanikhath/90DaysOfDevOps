@@ -200,34 +200,33 @@ This script repomds to -l or --list options read /etc/passwd list all the userna
 Part 5:- script to help and find usage information 
 
 
-#!/bin/bash 
-
-#function that show help linux command 
-show_help() {
-   echo "Usage: $0 [option]"
-   echo ""
-   echo "options:"
-   echo " -l, --list   list all user accounts with their usernames and UIDs"
-   echo " -h , --help  show this help message and exit "
+    #!/bin/bash 
+    #function that show help linux command 
+     show_help() {
+         echo "Usage: $0 [option]"
+         echo ""
+         echo "options:"
+         echo " -l, --list   list all user accounts with their usernames and UIDs"
+         echo " -h , --help  show this help message and exit "
    
-   #add more options below as your script grows 
-   echo 
-   echo "example:"
-   echo" $0 --list  list all user "
-   echo "$ 0 --help displays this help message "
-}
+    #add more options below as your script grows 
+         echo 
+         echo "example:"
+         echo" $0 --list  list all user "
+         echo "$ 0 --help displays this help message "
+    }
 
-#handle command -line arguments 
-case "$1" in 
-     -h|--help)
-         show_help
-         ;;
-      *)
-         echo "unknown option: $1"
-         echo " use -h or --help to display usage."
-         exit 1
-         ;;
-esac
+    #handle command -line arguments 
+    case "$1" in 
+         -h|--help)
+            show_help
+            ;;
+       *)
+               echo "unknown option: $1"
+               echo " use -h or --help to display usage."
+               exit 1   
+               ;;
+    esac
 
    
 When -h or --help option is used in your script it should display usage information and list all available command -line options with breif description.
