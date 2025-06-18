@@ -110,16 +110,15 @@ part 1:- shell script  for creating the user will look like :
 part 2:- shell script for deleting the user :
 
 
-
-   #!/bin/bash
-
-   #script to delete user accounts with options and validation
-
-   #function to delete user 
-   delete_user() {
-      read -p "Enter the username to delete :" usernamer
-
-      #check if user exists 
+    #!/bin/bash
+   
+    #script to delete user accounts with options and validation
+   
+    #function to delete user 
+    delete_user() {
+       read -p "Enter the username to delete :" usernamer
+      
+    #check if user exists 
       if id "$username" &>/dev/null; then 
           sudo userdel -r "$username"
           if [$? -eq 0]; then 
@@ -140,41 +139,36 @@ The above script is used to delete the username if exits and removes user and th
 Part-3:- shell script for password reset of the user 
 
 
-#!/bin/bash 
+    #!/bin/bash 
 
-#script to reset the password for the existing user 
+    #script to reset the password for the existing user 
+    read -p "Enter the username:" username 
 
-read -p "Enter the username:" username 
-
-#check if the user exists 
-
-if id "$username" $>/dev/null; then 
-    read -s -p "Enter the new password:" password 
-    echo 
-    read -s -p "Confirm the new password:" password_confirm 
-    echo
+    #check if the user exists 
+    if id "$username" $>/dev/null; then 
+       read -s -p "Enter the new password:" password 
+       echo 
+       read -s -p "Confirm the new password:" password_confirm 
+       echo
 
     #check if passwords match 
-    if [ "$password" != "$password_confirm"]; then 
-        echo "passwords do not match. try again."
-        exit 1 
-
-    fi
+       if [ "$password" != "$password_confirm"]; then 
+          echo "passwords do not match. try again."
+          exit 1 
+       fi
      # set a new password 
-     echo "$username:$password"| sudo chpasswd 
-
+         echo "$username:$password"| sudo chpasswd 
      # confirm success 
-     if [$? -eq 0]; then 
-        echo "password reset successfully for the user '$username'."
-
+         if [$? -eq 0]; then 
+            echo "password reset successfully for the user '$username'."
+         else 
+            echo " failed to reset the password for the user '$username'."
+         fi 
      else 
-        echo " failed to reset the password for the user '$username'."
-
+         echo " user '$username' does not exists."
+         exit 1
      fi 
-else 
-   echo " user '$username' does not exists."
-   exit 1
-fi 
+
 
 The above shell script first check whether the user is present and resets the password and confirms it after confirmation it resets the password accordingly . Then at last it prints the username and latest password changed .
 
@@ -194,7 +188,6 @@ Part -4 :- shell script to list user accounts
         -l|--list)
              list_users
              ;;
-
          *)
             echo "usage: $0 [-l | --list]"
             ;;
@@ -215,9 +208,9 @@ show_help() {
    echo ""
    echo "options:"
    echo " -l, --list   list all user accounts with their usernames and UIDs"
-   echo " -h , --help  show this help message and exit '
+   echo " -h , --help  show this help message and exit "
+   
    #add more options below as your script grows 
-
    echo 
    echo "example:"
    echo" $0 --list  list all user "
@@ -230,12 +223,12 @@ case "$1" in
          show_help
          ;;
       *)
-
          echo "unknown option: $1"
          echo " use -h or --help to display usage."
          exit 1
          ;;
 esac
+
    
 When -h or --help option is used in your script it should display usage information and list all available command -line options with breif description.
 
