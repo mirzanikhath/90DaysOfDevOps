@@ -231,5 +231,99 @@ Part 5:- script to help and find usage information
    
 When -h or --help option is used in your script it should display usage information and list all available command -line options with breif description.
 
+# Submission script :- Account management (user_manager.sh)
 
-    
+    #!/bin/bash
+
+   USER_FILE="users.txt"
+
+   hash_password() {
+       echo -n "$1" | sha256sum | awk '{print $1}'
+   }
+
+   #account creation 
+   create_account() {
+      read -p "Username: " username
+         if grep -q "^$username:" "$USER_FILE" 2>/dev/null; then
+            echo "User already exists."
+            return
+         fi
+      read -s -p "Password: " pass1; echo
+      read -s -p "Confirm Password: " pass2; echo
+      [[ "$pass1" != "$pass2" ]] && echo "Passwords do not match." && return
+      echo "$username:$(hash_password "$pass1")" >> "$USER_FILE"
+      echo "Account created."
+   }
+
+   #account deletion 
+   delete_account() {
+       read -p "Username to delete: " username
+       grep -v "^$username:" "$USER_FILE" > tmp && mv tmp "$USER_FILE"
+       echo "Account deleted (if it existed)."
+   }
+
+   #account password reset 
+   reset_password() {
+       read -p "Username: " username
+       if ! grep -q "^$username:" "$USER_FILE"; then
+           echo "User not found."
+           return
+       fi
+       read -s -p "New Password: " pass1; echo
+       read -s -p "Confirm Password: " pass2; echo
+       [[ "$pass1" != "$pass2" ]] && echo "Passwords do not match." && return
+       grep -v "^$username:" "$USER_FILE" > tmp
+       echo "$username:$(hash_password "$pass1")" >> tmp
+       mv tmp "$USER_FILE"
+       echo "Password reset."
+   }
+
+   #listing number of users present 
+   list_accounts() {
+       if [ ! -f "$USER_FILE" ]; then
+          echo "No users found."
+       else
+          echo "Users:"
+          cut -d: -f1 "$USER_FILE"
+       fi
+   }
+
+   #showing help for the users
+   show_help() {
+       echo "Usage: $0 {create|delete|reset|list|help}"
+   }
+
+   case "$1" in
+       create) create_account ;;
+       delete) delete_account ;;
+       reset)  reset_password ;;
+       list)   list_accounts ;;
+       help|*) show_help ;;
+   esac
+
+
+The above shell script shows the output one by one for creating , deleting , password reset , listing and helping with the account mangement services .
+
+to make the above script executable :
+
+       [command : chmod +x user_manager.sh]
+
+to run the script for creating an account :
+      
+      [command: ./user_manger.sh create]
+
+to run the script for deletion of an acccount :
+
+      [command :./user_manger.sh delete]
+
+to reset password of the user :
+
+      [command :./user_manger.sh reset]
+
+to list the account users:
+
+      [command : ./user_manger.sh list]
+
+to run the help command for the script :
+
+      [command : ./user_manager.sh help]
