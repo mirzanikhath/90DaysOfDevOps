@@ -130,7 +130,7 @@ part 2:- shell script for deleting the user :
          echo " user '$username' does not exist."
          exit 1 
       fi 
-   }
+    }
    
    
 
@@ -235,71 +235,71 @@ When -h or --help option is used in your script it should display usage informat
 
     #!/bin/bash
 
-   USER_FILE="users.txt"
+    USER_FILE="users.txt"
 
-   hash_password() {
-       echo -n "$1" | sha256sum | awk '{print $1}'
-   }
+    hash_password() {
+         echo -n "$1" | sha256sum | awk '{print $1}'
+     }
 
-   #account creation 
-   create_account() {
-      read -p "Username: " username
-         if grep -q "^$username:" "$USER_FILE" 2>/dev/null; then
-            echo "User already exists."
-            return
-         fi
-      read -s -p "Password: " pass1; echo
-      read -s -p "Confirm Password: " pass2; echo
-      [[ "$pass1" != "$pass2" ]] && echo "Passwords do not match." && return
-      echo "$username:$(hash_password "$pass1")" >> "$USER_FILE"
-      echo "Account created."
-   }
-
-   #account deletion 
-   delete_account() {
-       read -p "Username to delete: " username
-       grep -v "^$username:" "$USER_FILE" > tmp && mv tmp "$USER_FILE"
-       echo "Account deleted (if it existed)."
-   }
-
-   #account password reset 
-   reset_password() {
+    #account creation 
+    create_account() {
        read -p "Username: " username
-       if ! grep -q "^$username:" "$USER_FILE"; then
-           echo "User not found."
-           return
-       fi
-       read -s -p "New Password: " pass1; echo
+          if grep -q "^$username:" "$USER_FILE" 2>/dev/null; then
+             echo "User already exists."
+             return
+          fi
+       read -s -p "Password: " pass1; echo
        read -s -p "Confirm Password: " pass2; echo
        [[ "$pass1" != "$pass2" ]] && echo "Passwords do not match." && return
-       grep -v "^$username:" "$USER_FILE" > tmp
-       echo "$username:$(hash_password "$pass1")" >> tmp
-       mv tmp "$USER_FILE"
-       echo "Password reset."
-   }
+       echo "$username:$(hash_password "$pass1")" >> "$USER_FILE"
+       echo "Account created."
+    }
 
-   #listing number of users present 
-   list_accounts() {
-       if [ ! -f "$USER_FILE" ]; then
-          echo "No users found."
-       else
-          echo "Users:"
-          cut -d: -f1 "$USER_FILE"
-       fi
-   }
+    #account deletion 
+    delete_account() {
+        read -p "Username to delete: " username
+        grep -v "^$username:" "$USER_FILE" > tmp && mv tmp "$USER_FILE"
+        echo "Account deleted (if it existed)."
+    }
 
-   #showing help for the users
-   show_help() {
-       echo "Usage: $0 {create|delete|reset|list|help}"
-   }
+    #account password reset 
+    reset_password() {
+        read -p "Username: " username
+        if ! grep -q "^$username:" "$USER_FILE"; then
+             echo "User not found."
+             return
+        fi
+        read -s -p "New Password: " pass1; echo
+        read -s -p "Confirm Password: " pass2; echo
+        [[ "$pass1" != "$pass2" ]] && echo "Passwords do not match." && return
+        grep -v "^$username:" "$USER_FILE" > tmp
+        echo "$username:$(hash_password "$pass1")" >> tmp
+        mv tmp "$USER_FILE"
+        echo "Password reset."
+    }
 
-   case "$1" in
-       create) create_account ;;
-       delete) delete_account ;;
-       reset)  reset_password ;;
-       list)   list_accounts ;;
-       help|*) show_help ;;
-   esac
+    #listing number of users present 
+    list_accounts() {
+        if [ ! -f "$USER_FILE" ]; then
+           echo "No users found."
+        else
+           echo "Users:"
+           cut -d: -f1 "$USER_FILE"
+        fi
+    }
+
+    #showing help for the users
+    show_help() {
+        echo "Usage: $0 {create|delete|reset|list|help}"
+    }
+
+    case "$1" in
+        create) create_account ;;
+        delete) delete_account ;;
+        reset)  reset_password ;;
+        list)   list_accounts ;;
+        help|*) show_help ;;
+    esac
 
 
 The above shell script shows the output one by one for creating , deleting , password reset , listing and helping with the account mangement services .
