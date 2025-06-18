@@ -178,7 +178,66 @@ fi
 
 The above shell script first check whether the user is present and resets the password and confirms it after confirmation it resets the password accordingly . Then at last it prints the username and latest password changed .
 
+Part -4 :- shell script to list user accounts 
 
+    #!/bin/bash 
+
+    #function to list all user accounts with usernames and UIDs 
+    list_users() {
+      echo "username     UIDs"
+      eco "-------------------"
+      awk -f: '{ printf "%-12s %s\n", $1,$3 }' /etc/passwd
+    }
+
+    #main logic
+    case "$1" in 
+        -l|--list)
+             list_users
+             ;;
+
+         *)
+            echo "usage: $0 [-l | --list]"
+            ;;
+    esac
+
+
+This script repomds to -l or --list options read /etc/passwd list all the usernames and their UIDs and list them accordingly .
+
+
+Part 5:- script to help and find usage information 
+
+
+#!/bin/bash 
+
+#function that show help linux command 
+show_help() {
+   echo "Usage: $0 [option]"
+   echo ""
+   echo "options:"
+   echo " -l, --list   list all user accounts with their usernames and UIDs"
+   echo " -h , --help  show this help message and exit '
+   #add more options below as your script grows 
+
+   echo 
+   echo "example:"
+   echo" $0 --list  list all user "
+   echo "$ 0 --help displays this help message "
+}
+
+#handle command -line arguments 
+case "$1" in 
+     -h|--help)
+         show_help
+         ;;
+      *)
+
+         echo "unknown option: $1"
+         echo " use -h or --help to display usage."
+         exit 1
+         ;;
+esac
+   
+When -h or --help option is used in your script it should display usage information and list all available command -line options with breif description.
 
 
     
