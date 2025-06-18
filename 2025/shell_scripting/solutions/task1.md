@@ -110,9 +110,9 @@ part 1:- shell script  for creating the user will look like :
 part 2:- shell script for deleting the user :
 
 
+
    #!/bin/bash
    #script to delete user accounts with options and validation
-
    #function to delete user 
    delete_user() {
       read -p "Enter the username to delete :" usernamer
@@ -131,14 +131,15 @@ part 2:- shell script for deleting the user :
       fi 
    }
    
+   
 
 The above script is used to delete the username if exits and removes user and the home directory where -d and --delete are required for deletion  of the user after deletion it gives us back the successful message of deletion .
 
 Part-3:- shell script for password reset of the user 
 
+
 #!/bin/bash 
 #script to reset the password for the existing user 
-
 read -p "Enter the username:" username 
 #check if the user exists 
 if id "$username" $>/dev/null; then 
@@ -164,12 +165,12 @@ if id "$username" $>/dev/null; then
         echo " failed to reset the password for the user '$username'."
 
      fi 
-   
 else 
    echo " user '$username' does not exists."
    exit 1
-
 fi 
+
+The above shell script first check whether the user is present and resets the password and confirms it after confirmation it resets the password accordingly . Then at last it prints the username and latest password changed .
 
 
 
