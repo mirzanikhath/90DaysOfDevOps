@@ -80,4 +80,8 @@ successfully cloned the repository
 
 ![Screenshot 2025-06-19 150048](https://github.com/user-attachments/assets/c8719c9f-092b-4cbb-84f4-38f1e27e2cfa)
 
+3- change directory into cloned repository :
+
+
+
 
