@@ -69,3 +69,10 @@ Some basic git commands :
 1- Forked the repository :
 
  ![Screenshot 2025-06-19 144258](https://github.com/user-attachments/assets/32983428-f032-40ae-affa-77dcaf128f12)
+
+2- Clone the forked repository :
+
+
+
+successfully cloned the repository 
+
