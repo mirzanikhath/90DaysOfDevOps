@@ -12,13 +12,13 @@ But it shows Origin already exists.then i used the below command to set the URL
 
          command : git remote set-url origin https://mirzanikhath:<myPAT>@github.com/mirzanikhath/90DaysOfDevOps.git
 
-
-
+![Screenshot 2025-06-20 122752](https://github.com/user-attachments/assets/c7f32554-3c67-460d-ac1e-be4f06fef259)
 
 - Pushing my  Commit to Remote:
 
          command : git push -u origin main 
 
+![Screenshot 2025-06-20 124206](https://github.com/user-attachments/assets/98b1fc86-4c30-451c-b934-714eaac1bc3b)
 
 
 
@@ -35,6 +35,7 @@ I got an error like
 
 Which means Git is refusing to pysh because the localk master branch is behind the remote master branch.So i have done pulling the code first to sync the changes .
 
+![Screenshot 2025-06-20 142629](https://github.com/user-attachments/assets/18097f02-900d-4e46-bc03-18f59a2a9ca1)
 
 
 
