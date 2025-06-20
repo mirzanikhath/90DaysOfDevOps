@@ -19,3 +19,24 @@
 
 - merging the feature-update branch with master branch through creating a pull request on github 
 
+![Screenshot 2025-06-20 173347](https://github.com/user-attachments/assets/c1b95f80-0499-4cdb-adc9-14df959edcdc)
+
+
+
+![Screenshot 2025-06-20 173442](https://github.com/user-attachments/assets/de354f4d-21e0-4b17-9184-1c18c334952d)
+
+
+
+![Screenshot 2025-06-20 173550](https://github.com/user-attachments/assets/23df16b5-2278-4f44-a9da-7d48a22d79b4)
+
+
+![Screenshot 2025-06-20 173626](https://github.com/user-attachments/assets/1766c084-5a0b-4796-b42c-72bd0372d385)
+
+![Screenshot 2025-06-20 173727](https://github.com/user-attachments/assets/f848b173-396e-47d0-be52-3343aad31d81)
+
+
+
+
+
+
+
