@@ -35,6 +35,10 @@ it saves the changes without commiting them .
 
 ![Screenshot 2025-06-30 145721](https://github.com/user-attachments/assets/9f1fa8a7-3178-4b64-a2cf-dfd93b1db13d)
 
+- When I run git stash pop command it applied the changes saved in my most recent stash and then removed the stash from the stash list . 
+- After popping the stash , I now have temp.txt staged for commit in my stashed work, so it's back in staging. 
+- The last line confirms the stash was removed . 
+
 # git stash apply VS git stash pop 
 
 - git stash apply : It applies the stash changes to your working directory and keeps the stash in the stash list ( to reuse again).
