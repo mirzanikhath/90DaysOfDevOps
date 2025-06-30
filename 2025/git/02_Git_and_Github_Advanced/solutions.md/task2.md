@@ -31,7 +31,7 @@ To add this file
 to commit changes :
 
                  command : git commit -m " commited by mistake "
-
+![Screenshot 2025-06-30 142818](https://github.com/user-attachments/assets/e5e5e4bf-451f-43f0-8cf2-ab0cf7c27ff0)
 
 - Soft Reset (keeps changes staged).
 
@@ -44,9 +44,13 @@ to commit changes :
 - Hard Reset (removes all changes).
 
                 command : git reset --hard HEAD~1
+![Screenshot 2025-06-30 143033](https://github.com/user-attachments/assets/0fe5f550-0f84-48df-a2a8-478548b4aa95)
 
 - Revert a commit safely.
                 
-                command : git revert HEAD 
+                command : git revert HEAD
+![Screenshot 2025-06-30 143301](https://github.com/user-attachments/assets/9d362186-526c-4cbf-a381-5558dbae8019)
+
+  
 
                 
