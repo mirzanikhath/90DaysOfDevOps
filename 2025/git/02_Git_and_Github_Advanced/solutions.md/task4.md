@@ -9,10 +9,14 @@ Scenario: A bug fix exists in another branch, and you only want to apply that sp
 - Find the commit to cherry-pick.
  
                   command: git log --oneline
+![Screenshot 2025-06-30 154029](https://github.com/user-attachments/assets/d6b054bb-862a-4abd-89f1-bd82443fa091)
 
 - Apply a specific commit to the current branch.
 
                  command : git cherry-pick df84934
+
+  ![Screenshot 2025-06-30 154153](https://github.com/user-attachments/assets/761f8ded-5f2f-45c0-a9f8-837511cb6e4b)
+
 
 - To resolve the conflicts and again running git cherry-pick 
 
