@@ -17,6 +17,9 @@ Scenario: You need to switch branches but don’t want to commit incomplete work
                   
                   command : echo "Temporary Change" >> temp.txt
                             git add temp.txt
+![Screenshot 2025-06-30 145701](https://github.com/user-attachments/assets/1ef25744-c234-4342-8e0e-f858458572e1)
+
+
 
 - Stash the changes
 
@@ -30,6 +33,7 @@ it saves the changes without commiting them .
                              git stash pop
 
 
+![Screenshot 2025-06-30 145721](https://github.com/user-attachments/assets/9f1fa8a7-3178-4b64-a2cf-dfd93b1db13d)
 
 # git stash apply VS git stash pop 
 
