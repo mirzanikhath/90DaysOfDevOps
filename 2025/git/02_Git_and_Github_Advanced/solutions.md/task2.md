@@ -17,4 +17,36 @@ Types:
 
  We use git revert when we have to undo changes but keep a clean, visible history .
 
- 
+ Scenario: You accidentally committed incorrect changes and need to undo them.
+
+ - Create and modify a file.
+                    
+                    command : echo "wrong code" >> wrong.txt
+
+This command creates and prints wrong code in that new file . 
+To add this file 
+
+                  command : git add . 
+
+to commit changes :
+
+                 command : git commit -m " commited by mistake "
+
+
+- Soft Reset (keeps changes staged).
+
+                command : git reset --soft HEAD~1
+
+- Mixed Reset (unstages changes but keeps files).
+
+                command : git reset --mixed HEAD~1
+
+- Hard Reset (removes all changes).
+
+                command : git reset --hard HEAD~1
+
+- Revert a commit safely.
+                
+                command : git revert HEAD 
+
+                
