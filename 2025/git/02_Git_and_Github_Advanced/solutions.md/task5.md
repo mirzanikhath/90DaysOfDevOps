@@ -32,3 +32,26 @@ Scenario: Your branch is behind the main branch and needs to be updated without 
 
 
 As you can see in above documentation i faced a conflict with a file data/general.json , to resolve that conflict I used vim editor to edit that file and removed the unwanted lines and then run the command git rebase --continue and given the new commit message and finally rebased the master branch onto feature branch .           
+
+# Best practices of Rebasing : 
+
+Rebasing is powerful, but it can also cause a mess if used carelessly. The best practices to keep git history clean and avoid trouble .
+
+- Never Rebase Public Branches: Don't rebase commits that other people might have pulled . Only rebase your own local work . 
+
+- Use Rebase to Clean Local Commits : Rebasing is perfect for cleaning up messy commits on your local feature branch , squashing multiple small commits into one logical commit , putiing your work on top of the latest changes from master . 
+
+- Resolve Conflicts Carefully : During rebase check conflicted files , remove conflict markers (<<<<,=========,>>>>) , test your code before continuing , use git add and git rebase --continue command . Don't while resolvng conflicts . 
+
+- Prefer interactive Rebase for Clean History : Interactive rebase lets you squash commits and edit commit messages and drop unnecessary commits. 
+
+- Abort if Things Go Wrong :If the rebase feels messy or confusing abort it this will restore your branch to how it was before you started . 
+
+- Make Backups Before Big Rebases: If We're unsure about the commits by creating backups we can easily recover if our rebase goes wrong . 
+
+- Check Your History Before Pushing : After rebasing we should check our git log to confirm that our commits look correct . 
+
+- Force Push Carefully After Rebase : After rebasing a branch whic is already pushed to remote we will need to run git push --force-with-lease because it checks if the remote branch has changed unexpectedly. 
+
+- Communicate with Team : If we're collaborating on a branch and want to rebase then we need to communicate with our team indicating them that we are rebasing and asking them to wait for push or pull until we are done . 
+
