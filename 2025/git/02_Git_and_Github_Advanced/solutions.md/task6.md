@@ -1,6 +1,6 @@
 # Task 6: Branching Strategies Used in Companies
 
-Real-world companies handling branching n their Git workflows which plays a very most crucial parts of collaboration and release management . Here's the breakdown of how they choose them and how they work. 
+In real-world companies, the chosen Git branching strategy is a crucial part of collaboration and release management. Here's the breakdown of how they choose them and how they work.
 
 # Git Flow:
 
