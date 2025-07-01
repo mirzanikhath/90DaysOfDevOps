@@ -21,10 +21,14 @@ Scenario: Your branch is behind the main branch and needs to be updated without 
 
 - Rebase the feature branch onto main.
 
-                   command : git rebase origin/master 
+                   command : git rebase origin/master
+
+![Screenshot 2025-07-01 131110](https://github.com/user-attachments/assets/d82341b0-fc63-4944-8627-eae3b049d842)
 
 - Resolve conflicts  if any and continue.
  
                     command : git rebase --continue 
+![Screenshot 2025-07-01 131647](https://github.com/user-attachments/assets/6564bbf9-33d7-4832-9836-246598925042)
+
 
 As you can see in above documentation i faced a conflict with a file data/general.json , to resolve that conflict I used vim editor to edit that file and removed the unwanted lines and then run the command git rebase --continue and given the new commit message and finally rebased the master branch onto feature branch .           
